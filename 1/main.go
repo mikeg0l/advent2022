@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"slices"
+	"sort"
 	"strconv"
 )
 
@@ -37,4 +38,14 @@ func main() {
 	}
 
 	fmt.Println(slices.Max(calories))
+
+	sort.Slice(calories, func(i, j int) bool {
+		return calories[i] < calories[j]
+	})
+
+	lastEl := calories[len(calories)-1]
+	secondLastEl := calories[len(calories)-2]
+	thirdLastEl := calories[len(calories)-3]
+
+	fmt.Printf("%v", lastEl+secondLastEl+thirdLastEl)
 }
