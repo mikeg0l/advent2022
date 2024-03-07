@@ -14,11 +14,11 @@ func main() {
 
 	file, err := os.Open("input")
 
-	defer file.Close()
-
 	if err != nil {
 		log.Fatal("Error while opening file")
 	}
+
+	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
 
